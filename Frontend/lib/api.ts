@@ -1,7 +1,6 @@
 import axios from 'axios';
-import config from '@/lib/config';
 
-const API_URL = config.apiUrl;
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 
 // Only log in development
 const isDevelopment = process.env.NODE_ENV === 'development';
