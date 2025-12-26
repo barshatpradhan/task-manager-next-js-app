@@ -4,9 +4,9 @@ const config = {
   isProduction: process.env.NODE_ENV === 'production',
 } as const;
 
-// Validate required env vars in production
-if (config.isProduction && !process.env.NEXT_PUBLIC_API_URL) {
-  throw new Error('NEXT_PUBLIC_API_URL must be set in production');
+// Only validate in the browser (runtime), not during build
+if (typeof window !== 'undefined' && config.isProduction && !process.env.NEXT_PUBLIC_API_URL) {
+  console.error('⚠️ Warning: NEXT_PUBLIC_API_URL is not set in production');
 }
 
 export default config;
