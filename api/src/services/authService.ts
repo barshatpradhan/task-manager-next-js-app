@@ -1,8 +1,8 @@
 
-import prisma from '../config/database';
-import { hashPassword, comparePassword } from '../utils/password';
-import { generateToken } from '../utils/jwt';
-import { RegisterDTO, LoginDTO } from '../types';
+import prisma from '../config/database.js';
+import { hashPassword, comparePassword } from '../utils/password.js';
+import { generateToken } from '../utils/jwt.js';
+import { RegisterDTO, LoginDTO } from '../types/index.js';
 
 export const registerUser = async (data: RegisterDTO) => {
   // Check if user already exists

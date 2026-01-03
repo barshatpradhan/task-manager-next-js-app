@@ -1,5 +1,5 @@
-import prisma from '../config/database';
-import { CreateTaskDTO, UpdateTaskDTO } from '../types';
+import prisma from '../config/database.js';
+import { CreateTaskDTO, UpdateTaskDTO } from '../types/index.js';
 
 export const getUserTasks = async (userId: number, completed?: boolean) => {
   try {

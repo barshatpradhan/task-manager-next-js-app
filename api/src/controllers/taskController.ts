@@ -1,7 +1,7 @@
 import { Response } from 'express';
-import { AuthRequest } from '../middleware/auth';
-import { CreateTaskDTO, UpdateTaskDTO } from '../types';
-import * as taskService from '../services/taskService';
+import { AuthRequest } from '../middleware/auth.js';
+import { CreateTaskDTO, UpdateTaskDTO } from '../types/index.js';
+import * as taskService from '../services/taskService.js';
 
 export const getTasks = async (
   req: AuthRequest,

@@ -1,19 +1,46 @@
 {
   "compilerOptions": {
-    "module": "nodenext",
-    "target": "es2022",
-    "lib": ["es2022"],
+    /* ===============================
+       Runtime & Module System
+       =============================== */
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+
+    /* ===============================
+       Environment (Node backend)
+       =============================== */
+    "lib": ["ES2022"],
+    "types": ["node"],
+
+    /* ===============================
+       Project Structure
+       =============================== */
     "rootDir": "./src",
     "outDir": "./dist",
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
+
+    /* ===============================
+       Type Safety
+       =============================== */
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+
+    /* ===============================
+       ESM & Interop
+       =============================== */
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "isolatedModules": true,
+
+    /* ===============================
+       Build Output
+       =============================== */
+    "sourceMap": true,
+    "declaration": false
   },
-  "include": ["src/**/*"],  
-  "exclude": ["node_modules", "dist"]
+
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "prisma"]
 }
