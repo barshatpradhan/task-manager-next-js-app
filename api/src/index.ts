@@ -72,11 +72,23 @@ app.get('/api', (req, res) => {
 
 // Static files & SPA fallback
 app.use(express.static(path.join(__dirname, '../dist')));
-app.get('*', (req, res, next) => {
+// app.get('*', (req, res, next) => {
+//   if (req.path.startsWith('/api')) {
+//     return res.status(404).json({ error: 'API endpoint not found' });
+//   }
+//   res.sendFile(path.join(__dirname, '../dist/index.html'));
+// });
+// 1. Remove the express.static line entirely
+// app.use(express.static(path.join(__dirname, '../dist')));
+
+// 2. Replace the '*' catch-all with a simple health check or "Not Found"
+app.get('*', (req, res) => {
   if (req.path.startsWith('/api')) {
-    return res.status(404).json({ error: 'API endpoint not found' });
+    res.status(404).json({ error: 'API endpoint not found' });
+  } else {
+    // If someone visits the base backend URL, just show this:
+    res.send('API Server is running. Please use the Frontend URL to access the app.');
   }
-  res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
 // Error handler (must be last)
