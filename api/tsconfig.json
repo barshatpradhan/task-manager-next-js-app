@@ -11,7 +11,7 @@
        Environment (Node backend)
        =============================== */
     "lib": ["ES2022"],
-    "types": ["node"],
+    "types": [],
 
     /* ===============================
        Project Structure
