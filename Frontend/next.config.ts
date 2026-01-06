@@ -21,12 +21,13 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   async rewrites() {
+    // Fallback to a string to prevent "undefined" error during build
+    const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+    
     return [
       {
-        // This takes any call to /api/proxy/... 
         source: '/api/proxy/:path*',
-        // And sends it to your Render backend URL
-        destination: `${process.env.NEXT_PUBLIC_API_URL}/api/:path*`,
+        destination: `${backendUrl}/api/:path*`,
       },
     ];
   },
